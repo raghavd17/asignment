@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul id="people">
+  <li><a href="http://microsoft.com">microsoft.com</a></li>
+  <li><a href="http://facebook.com">facebook.com</a></li>
+  <li><a href="http://apple.com">apple.com</a></li>
+  <li><a href="http://mastercard.com">mastercard.com</a></li>
+</ul>
+<script>
+
+//Array
+var people = [
+  { firstname:"Micro",  lastname:"Soft", site:"http://microsoft.com" },
+  { firstname:"Face",   lastname:"Book", site:"http://facebook.com" },
+  { firstname:"App",    lastname:"Le",   site:"http://apple.com" },
+  { firstname:"Master", lastname:"Card", site:"http://mastercard.com" }
+];
+
+//On load function register click events
+window.onload = function(){ 
+    var x = document.getElementById("people");
+    var anchorLinks = x.getElementsByTagName("a");
+  
+  for (var i = 0; i < anchorLinks.length; i++) {
+    var anchorLink = anchorLinks[i];
+    anchorLink.onclick = displayData;
+  }
+}
+
+function displayData(ev){
+   event.preventDefault();
+   var firstAndLastName = displayFirstAndLastName(this.origin);
+   alert(firstAndLastName);
+}
+
+function displayFirstAndLastName(value) {
+    //Loop through the array and find the first and last name if clicked anchor link/text equals to array element
+    for (var i = 0; i < people.length; i++) {
+        if (people[i]["site"] === value) {
+            return "First name: "+ people[i]["firstname"] + " , " + "Last name: "+ people[i]["lastname"];
+        }
+    }
+    return null;
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+function unique(array) {
+    var tempArray = {};
+    for (var i = 0; i < array.length; i++)
+        tempArray[array[i]] = true;
+    var uniqueArray = [];
+    for (var k in tempArray)
+        uniqueArray.push(k);
+    return uniqueArray;
+}
+
+var uniqueArray = unique([1,2,2,2,1,4,6,7,10,1]);
+alert(uniqueArray);
+
+</script>
+
+</body>
+</html>
